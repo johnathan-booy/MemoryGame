@@ -1,0 +1,246 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  background: #262626;
+}
+
+h1,
+h2,
+#user-score,
+#lowest-score,
+#restart-button:hover,
+.start-button:hover {
+  color: #fff;
+  text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa;
+}
+
+h1 {
+  font-size: 5vw;
+  font-family: "Sacramento", cursive;
+  text-align: center;
+  padding-top: 6vh;
+}
+
+h2 {
+  font-size: 2vw;
+  text-align: center;
+}
+
+
+.music-symbol {
+  font-family: "Noto Music", sans-serif;
+  font-size: 4.5vw;
+}
+
+.symbol-name {
+  font-size: 2.25vw;
+}
+
+#expert-game,
+#moderate-game,
+#easy-game,
+#menu {
+  display: grid;
+  justify-content: center;
+  margin-top: 8vh;
+  margin-bottom: 8vh;
+}
+
+#expert-game {
+  grid-template-columns: repeat(6, 12vw);
+  grid-template-rows: repeat(3, 8.652vw);
+  grid-column-gap: 2vw;
+  grid-row-gap: 6vh;
+}
+
+#menu {
+  grid-template-columns: repeat(1, 24vw);
+  grid-template-rows: repeat(3, 8.652vw);
+  grid-row-gap: 6vh;
+}
+
+#moderate-game {
+  grid-template-columns: repeat(4, 14vw);
+  grid-template-rows: repeat(3, 7.416vw);
+  grid-column-gap: 4vw;
+  grid-row-gap: 6vh;
+}
+
+#easy-game {
+  grid-template-columns: repeat(4, 14vw);
+  grid-template-rows: repeat(2, 8.652vw);
+  grid-column-gap: 6vw;
+  grid-row-gap: 6vh;
+}
+
+.start-button,
+.game-over {
+  font-size: 3vw;
+  color: #fff;
+}
+
+.card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner,
+.card-front,
+.card-back {
+  border-radius: 5%;
+}
+
+.card-inner,
+.start-button,
+#restart-button {
+  background-color: transparent;
+  box-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 21px rgba(0, 255, 170, 0.8), 0 0 40px rgba(0, 255, 170, 0.6), 0 0 60px rgba(0, 255, 170, 0.4), 0 0 100px rgba(0, 255, 170, 0.2);
+}
+
+.start-button:hover {
+  border: 1vw solid #262626;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.face-up > .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+
+.card-back > img {
+  display: block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+}
+
+.card-front > p {
+  display: block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.game-over > p {
+  text-align: center;
+}
+
+.shake {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@media (orientation: portrait) {
+  #easy-game {
+    grid-template-columns: repeat(2, 28vw);
+    grid-template-rows: repeat(4, 17.305vw);
+    grid-column-gap: 6vw;
+    grid-row-gap: 4vh;
+  }
+
+  #moderate-game {
+    grid-template-columns: repeat(3, 22vw);
+    grid-template-rows: repeat(4, 13.597vw);
+    grid-column-gap: 3vw;
+    grid-row-gap: 4vh;
+  }
+
+  #expert-game {
+    grid-template-columns: repeat(3, 22vw);
+    grid-template-rows: repeat(6, 13.597vw);
+    grid-column-gap: 4vw;
+    grid-row-gap: 2vh;
+  }
+
+  #menu {
+    grid-template-columns: repeat(1, 44vw);
+    grid-template-rows: repeat(3, 13.597vw);
+    grid-row-gap: 2vh;
+  }
+
+  h1 {
+    font-size: 8vw;
+  }
+
+  h2 {
+    font-size: 3.5vw;
+  }
+
+  .music-symbol {
+    font-size: 6.5vw;
+  }
+
+  .symbol-name {
+    font-size: 3.25vw;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
